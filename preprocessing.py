@@ -6,11 +6,11 @@ def enhance_image(image):
     # Ubah ke grayscale
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-    # Terapkan CLAHE (untuk meningkatkan kontras lokal)
+    # CLAHE (untuk meningkatkan kontras lokal)
     clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
     clahe_img = clahe.apply(gray)
 
-    # Terapkan bilateral filter (untuk meredam noise sambil menjaga edge)
+    # Bilateral filter (untuk meredam noise sambil menjaga edge)
     enhanced = cv2.bilateralFilter(clahe_img, d=9, sigmaColor=75, sigmaSpace=75)
 
     return enhanced
@@ -25,7 +25,7 @@ def segment_image(enhanced_img):
 def extract_features(image):
     features = []
 
-    # Ubah ke BGR jika perlu
+    # Ubah ke BGR
     if len(image.shape) == 2 or image.shape[2] == 1:
         image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
 
@@ -63,7 +63,7 @@ def extract_features(image):
         circularity = 4 * np.pi * (area / (perimeter ** 2 + 1e-6))
         hull = cv2.convexHull(c)
         hull_area = cv2.contourArea(hull)
-        convexity = area / (hull_area + 1e-6)
+        convexity = area / (hull_area + 1e-6)   
 
         x, y, w, h = cv2.boundingRect(c)
         extent = area / (w * h + 1e-6)  # Fitur baru: extent ratio

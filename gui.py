@@ -1,13 +1,11 @@
+import cv2
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import ttk
-from PIL import Image, ImageTk  # ImageEnhance tidak lagi diperlukan untuk resize kualitas tinggi dengan Image.LANCZOS
-import cv2
+from PIL import Image, ImageTk
 import os
 import numpy as np
 from PIL import ImageDraw, ImageFont  # Tambahkan impor ini untuk placeholder jika tidak ada file
-
-# Pastikan classify_cloud.py berada di direktori yang sama atau di PATH
 from classify_cloud import classify_cloud
 
 

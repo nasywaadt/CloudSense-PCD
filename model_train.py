@@ -66,7 +66,7 @@ print("🧪 Memuat data uji...")
 X_test, y_test = load_dataset('dataset/test')
 
 # Prediksi
-print("📈 Melakukan prediksi...")
+print("📈 Melakukan prediksi..")
 best_model = grid.best_estimator_
 y_pred = best_model.predict(X_test)
 

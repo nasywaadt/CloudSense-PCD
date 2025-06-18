@@ -1,4 +1,3 @@
-import cv2
 import joblib
 import numpy as np
 from preprocessing import enhance_image, segment_image, extract_features
